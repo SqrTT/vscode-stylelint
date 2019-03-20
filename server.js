@@ -33,7 +33,7 @@ async function validate(document) {
 			for (const {uri} of workspaceFolders) {
 				const workspacePath = Files.uriToFilePath(uri);
 
-				if (pathIsInside(documentPath, workspacePath)) {
+				if (workspacePath && pathIsInside(documentPath, workspacePath)) {
 					options.ignorePath = join(workspacePath, '.stylelintignore');
 					break;
 				}
